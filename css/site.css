@@ -78,3 +78,7 @@
      word-break: break-all;
      word-wrap: break-word;
  }
+
+ .logoFont {
+     font-family: 'Racing Sans One', cursive;
+ }

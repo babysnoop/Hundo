@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A coding project by Datagenicsx</title>
+    <title>Hundo: A coding project by Datagenicsx</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,6 +15,9 @@
     <link href="css/site.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon-32x32.png">
     <link href="css/prism.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
     <!-- Convert this to an external style sheet -->
 
 </head>
@@ -23,8 +26,8 @@
     <!-- Nav Section -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/White logo - no background.svg"
-                    class="d-inline-block align-text-top" alt="Datagenicsx" width="30" height="24"> APP NAME</a>
+            <a class="navbar-brand logoFont" href="#"><img src="img/White logo - no background.svg"
+                    class="d-inline-block align-text-top" alt="Datagenicsx" width="30" height="24"> Hundo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,24 +56,63 @@
     <!-- Main Section -->
     <main class="flex-shrink-0">
         <div class="container py-5 mt-5 px-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for Hundo.</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function HelloWorld() {
-                            alert("Hello World");
-                            }
+                           // get values from the Page
+                           function getValues() {
+                           // Get the values
+                           let startNumber = document.getElementById("startValue").value;
+                           let endNumber = document.getElementById("endValue").value;
+                           let numbers = [];
+                           // parse into Intefers
+                           startNumber = parseInt(startNumber);
+                           endNumber = parseInt(endNumber);
+
+                           if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {
+                           // Call generateNumbers
+                           numbers = generateNumbers(startNumber, endNumber);
+                           } else {
+                           alert("You must enter integers")
+                           }
+
+                           // Call displayNumbers
+                           displayNumbers(numbers);
+                           }
+
+                           // Generate numbers from the start value to end value
+                           // logic function
+                           function generateNumbers(sartValue, endValue) {
+                           let numbers = [];
+
+                           for (let index = sartValue; index <= endValue; index++) { numbers.push(index); } return
+                               numbers; } //Display the number and even numbers in bold // display or view function
+                               displayNumbers(numbers) { let templateRow="" ; numbers.forEach(number=> {
+                               if (number % 2 == 0) {
+                               templateRow += `<tr>
+                                   <td><strong>${number}</strong></td>
+                               </tr>`;
+                               } else {
+                               templateRow += `<tr>
+                                   <td>${number}</td>
+                               </tr>`;
+                               }
+
+                               });
+
+                               document.getElementById("results").innerHTML = templateRow;
+                               }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
                     <p>The Code is structed in one function</p>
-                    <h5?>Hello Wolrd</h5>
-                        <p>
-                            Hellow world is a function that displayes an alert with a message of "Hello World"
-                        </p>
+                    <h5>Hello Wolrd</h5>
+                    <p>
+                        Hellow world is a function that displayes an alert with a message of "Hello World"
+                    </p>
                 </div>
             </div>
         </div>
